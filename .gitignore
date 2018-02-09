@@ -1,0 +1,20 @@
+# Ignore .env files
+.env
+
+# Ignore wordpress itself
+wordpress
+
+# Ignore local config
+wp-cli.local.yml
+
+# Ignore everything in content directory except themes and language
+content/*
+
+# Uncomment this line and replace ${name} if you are developing theme
+# !content/themes/${name}
+
+# Uncomment this line and replace ${name} if you are developing plugin
+# !content/plugins/${name}
+
+# Ignore vendor lib
+vendor
