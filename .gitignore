@@ -5,6 +5,9 @@
 wordpress
 
 # Ignore local config
+wp-config.php
+
+# Ignore local wp-cli config
 wp-cli.local.yml
 
 # Ignore everything in content directory except themes and language

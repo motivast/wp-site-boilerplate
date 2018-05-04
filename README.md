@@ -12,28 +12,32 @@ Clone WP Site Boilerplate from GitHub
 
 ```git clone git@github.com:motivast/wp-site-boilerplate.git mysite```
 
-Go into directory and install dependencies
+Go into directory
 
-```cd mysite && composer install```
-
-Install theme from WordPress theme directory
-
-```composer require wpackagist-theme/twentyseventeen```
+```cd mysite```
 
 Copy dotenv and fill with your properties
 
 ```cp .env.example .env```
 
-Download, generate config and install WordPress using .env variables with one command. This task will try to create database before executing it make sure your database user provided in .env file can create database or create database by yourself.
+Install dependencies and download WordPress
+
+```composer install```
+
+Install theme from WordPress theme directory
+
+```composer require wpackagist-theme/twentyseventeen```
+
+Generate config and install WordPress using .env variables with one command. If database do not exist this task will try to create it. Before executing make sure your database user provided in .env file can create database or create database by yourself.
 
 ```./vendor/bin/phing wp:init```
 
-Your `wp-config.php` file will be generated in ./wordpress directory. Open it and add this configuration.
+Your `wp-config.php` file will be generated in current directory. Open it and add this configuration.
 
 ```
 define('WP_HOME', 'http://example.com');
 define('WP_SITEURL',  WP_HOME . '/wordpress/');
-define('WP_CONTENT_DIR', realpath( dirname(__FILE__) . '/../content' ));
+define('WP_CONTENT_DIR', realpath( dirname( __FILE__ ) . '/content' ));
 define('WP_CONTENT_URL', WP_HOME . '/content');
 ```
 

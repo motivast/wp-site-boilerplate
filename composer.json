@@ -17,12 +17,28 @@
   "require": {
     "php": ">=5.3.0",
     "phing/phing": "2.16.1",
-    "wp-cli/wp-cli": "1.2.1"
+    "wp-cli/wp-cli": "1.5.1",
+
+    "squizlabs/php_codesniffer": "^3.2",
+    "wp-coding-standards/wpcs": "^0.14.1",
+    "friendsofphp/php-cs-fixer": "^2.11",
+    "sebastian/phpcpd": "^4.0",
+    "phpmd/phpmd": "^2.6"
   },
   "extra": {
     "installer-paths": {
       "content/plugins/{$name}/": ["type:wordpress-plugin"],
       "content/themes/{$name}/": ["type:wordpress-theme"]
     }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "./vendor/bin/phing wp:download",
+      "./vendor/bin/phing setup"
+    ],
+    "post-update-cmd": [
+      "./vendor/bin/phing wp:download",
+      "./vendor/bin/phing setup"
+    ]
   }
 }
